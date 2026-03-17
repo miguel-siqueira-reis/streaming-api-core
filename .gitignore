@@ -1,0 +1,29 @@
+# Rust compilados e build
+/target/
+**/*.rs.bk
+
+# Variáveis de Ambiente e Segredos (MUITO IMPORTANTE)
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editores e IDEs
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+
+# Banco de dados local (caso você mapeie o volume do Docker pra uma pasta)
+postgres-data/
+pgdata/
+db_data/

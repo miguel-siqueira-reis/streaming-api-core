@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AnimeNull Player Z</title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <style>
+        body { background: #111; color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; font-family: sans-serif;}
+        video { width: 80%; max-width: 800px; border: 4px solid #f97316; border-radius: 8px; box-shadow: 0 0 20px rgba(249, 115, 22, 0.5); }
+    </style>
+</head>
+<body>
+    <h1>🍿 Bem Vindo ao HLS</h1>
+    <!-- A mágica: A URL é local do nosso proprio servidor Rust via M3u8 -->
+    <video id="video" controls autoplay></video>
+
+    <script>
+      var video = document.getElementById('video');
+      var videoSrc = 'http://localhost:4000/hls/teste/playlist.m3u8';
+
+      if (Hls.isSupported()) {
+        var hls = new Hls({
+            debug: false,
+        });
+        hls.loadSource(videoSrc);
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED, function() {
+          video.play();
+        });
+      }
+      else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        video.src = videoSrc;
+        video.addEventListener('loadedmetadata', function() {
+          video.play();
+        });
+      }
+    </script>
+</body>
+</html>

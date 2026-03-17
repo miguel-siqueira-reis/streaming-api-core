@@ -1,0 +1,51 @@
+### Variáveis de Ambiente para os testes
+@baseUrl = http://localhost:4000
+
+### =========================================================================
+### ENDPOINTS DE ADMINISTRAÇÃO
+### =========================================================================
+### Seeder: Popular Banco com Jikan API (Top Animes)
+POST {{baseUrl}}/admin/seed
+
+
+### Criar um Anime (Show)
+# @name createShow
+POST {{baseUrl}}/admin/shows
+Content-Type: application/json
+
+{
+  "title": "Chainsaw Man",
+  "slug": "chainsaw-man",
+  "cover_image_url": "https://img.example.com/cm.jpg",
+  "metadata": {
+    "studio": "MAPPA",
+    "release_year": 2022
+  }
+}
+
+### =========================================================================
+### ENDPOINTS DO CATÁLOGO
+### =========================================================================
+
+### 1. Listar Catálogo Completo (Isso vai ler da nossa Tabela Shows)
+GET {{baseUrl}}/catalog
+
+### 2. Buscar um Anime específico (Altere o UUID pelo gerado na criação do show)
+GET {{baseUrl}}/catalog/{{createShow.response.body.id}}
+
+### =========================================================================
+### ENDPOINTS DE STREAMING (Agora executam vídeo de verdade!!)
+### =========================================================================
+
+### Iniciar Transcode de um arquivo (Dispara request no canal async do FFmpeg)
+### Altere anime_id pelo ID gerado e adicione um path de video real da pasta storage/raw/
+POST {{baseUrl}}/stream/transcode
+Content-Type: application/json
+
+{
+  "anime_id": "{{createShow.response.body.id}}",
+  "file_path": "./storage/raw/teste.mp4",
+  "resolution": "720p"
+}
+
+
