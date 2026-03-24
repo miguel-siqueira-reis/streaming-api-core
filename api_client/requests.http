@@ -6,8 +6,6 @@
 ### =========================================================================
 ### Seeder: Popular Banco com Jikan API (Top Animes)
 POST {{baseUrl}}/admin/seed
-
-
 ### Criar um Anime (Show)
 # @name createShow
 POST {{baseUrl}}/admin/shows

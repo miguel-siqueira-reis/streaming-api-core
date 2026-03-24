@@ -3,6 +3,7 @@ name = "AnimeNull"
 version = "0.1.0"
 edition = "2024"
 authors = ["Miguel Siqueira Reis"]
+default-run = "AnimeNull"
 
 [dependencies]
 axum = { version = "0.8", features = ["macros"] }
@@ -21,6 +22,12 @@ sea-query = { version = "0.32.7", features = ["derive"] }
 sea-query-binder = { version = "0.7.0", features = ["sqlx-postgres", "with-json", "with-uuid", "with-chrono"] }
 dotenvy = "0.15"
 reqwest = { version = "0.13.2", features = ["json"] }
+argon2 = "0.5.3"
+password-hash = "0.6.0"
+rand_core = "0.10.0"
+jsonwebtoken = "10.3.0"
+async-trait = "0.1.89"
+axum-extra = { version = "0.12.5", features = ["typed-header"] }
 
 [dev-dependencies]
 dotenvy = "0.15" # Para carregar o DATABASE_URL nos testes

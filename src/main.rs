@@ -1,12 +1,7 @@
-mod error;
-mod state;
-mod schema;
-mod features;
-mod worker;
-mod telemetry;
 
 use std::env;
-use crate::state::{AppConfig, AppState};
+use AnimeNull::state::{AppConfig, AppState};
+use AnimeNull::{telemetry, worker, features};
 
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {

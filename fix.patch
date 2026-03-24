@@ -1,0 +1,6 @@
+--- src/features/auth/extractor.rs
++++ src/features/auth/extractor.rs
+@@ -23,3 +23,3 @@
+ 
+-    async fn from_request_parts(parts: &mut Parts, state: &AppState) -> Result<Self, Self::Rejection> {
++    async fn from_request_parts(parts: &mut Parts, state: &AppState) -> Result<Self, Self::Rejection> {

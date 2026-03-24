@@ -17,6 +17,7 @@ pub struct AppConfig {
     pub storage_path: std::path::PathBuf,
     pub ffmpeg_path: std::path::PathBuf,
     pub max_concurrent_transcodes: usize,
+    pub jwt_secret: String,
 }
 
 impl AppConfig {
@@ -25,6 +26,7 @@ impl AppConfig {
             storage_path: env::var("STORAGE_PATH").unwrap_or_else(|_| "./storage/raw".to_string()).into(),
             ffmpeg_path: "ffmpeg".into(), // Poderia vir do env também
             max_concurrent_transcodes: 4, // Poderia vir do env
+            jwt_secret: env::var("JWT_SECRET").expect("JWT_SECRET must be set in .env map"),
         }
     }
 }
