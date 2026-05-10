@@ -101,7 +101,6 @@ pub struct MeResponse {
 pub async fn me(
   user: AuthenticatedUser,
 ) -> Result<Json<MeResponse>, AuthError> {
-  // A magica do Extractor aconteceu!
   Ok(Json(MeResponse {
       id: user.0.id.to_string(),
       name: user.0.name,

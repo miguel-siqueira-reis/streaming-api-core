@@ -1,6 +1,7 @@
 use sea_query::Iden;
 
 #[derive(Iden)]
+#[iden(rename = "users")]
 pub enum User {
     Table,
     Id,

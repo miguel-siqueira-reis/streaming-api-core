@@ -1,6 +1,0 @@
---- src/features/auth/extractor.rs
-+++ src/features/auth/extractor.rs
-@@ -21,3 +21,2 @@
--#[async_trait]
- impl FromRequestParts<AppState> for AuthenticatedUser {
-     type Rejection = AuthError;
